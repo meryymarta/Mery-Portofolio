@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lab Business Analytics | Project Detail</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F8F2DF;
+            --blue: #29479F;
+            --blue-text: #31547E;
+            --muted: #8290A8;
+            --line: #AAB5C7;
+        }
+
+        body {
+            background: #F0F1F5;
+            font-family: 'Inter', sans-serif;
+            color: var(--blue);
+        }
+
+        .page {
+            min-height: 100vh;
+            background: var(--cream);
+        }
+
+        /* NAVIGATION */
+        .topbar {
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .back-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .topbar-label {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--muted);
+        }
+
+        /* HERO */
+        .project-hero {
+            padding: 75px 9% 65px;
+            background: var(--blue);
+            color: var(--cream);
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: #DCE4F6;
+        }
+
+        .project-hero h1 {
+            max-width: 850px;
+            margin-top: 20px;
+            font: 900 clamp(38px, 6vw, 72px)/1.15 'Roboto Slab', serif;
+        }
+
+        .project-hero p {
+            max-width: 680px;
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #E5EAF6;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 30px;
+            margin-top: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #DCE4F6;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            max-width: 1200px;
+            margin: auto;
+            padding: 65px 7%;
+        }
+
+        /* PROJECT SCREENSHOTS */
+        .preview-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: -5px;
+        }
+
+        .preview-item {
+            border: 1px solid var(--line);
+            background: #FBF7EA;
+            overflow: hidden;
+        }
+
+        .preview-item img {
+            display: block;
+            width: 100%;
+            height: 145px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .preview-item p {
+            padding: 10px;
+            color: var(--blue-text);
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* SECTION */
+        .section {
+            margin-top: 65px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 25px;
+        }
+
+        .section-number {
+            font: 800 30px 'Roboto Slab', serif;
+            color: var(--muted);
+        }
+
+        .section-heading h2 {
+            font: 800 25px 'Roboto Slab', serif;
+        }
+
+        .section-text {
+            max-width: 900px;
+            color: var(--blue-text);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        /* GRID */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .info-card {
+            padding: 25px;
+            border: 1px solid rgba(41, 71, 159, .25);
+            background: rgba(255, 255, 255, .38);
+        }
+
+        .info-card h3 {
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        .info-card p,
+        .info-card li {
+            color: var(--blue-text);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .info-card ul {
+            padding-left: 18px;
+        }
+
+        /* TECH STACK */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tags span {
+            padding: 9px 13px;
+            border: 1px solid #AAB5C7;
+            color: var(--blue-text);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* CONTRIBUTION */
+        .contribution {
+            padding: 30px;
+            background: var(--blue);
+            color: var(--cream);
+        }
+
+        .contribution h3 {
+            margin-bottom: 15px;
+            font: 800 24px 'Roboto Slab', serif;
+        }
+
+        .contribution p {
+            color: #E5EAF6;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* BUTTONS */
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 55px;
+        }
+
+        .action-link {
+            display: inline-block;
+            padding: 14px 20px;
+            background: var(--blue);
+            border: 1px solid var(--blue);
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 800;
+            transition: .3s;
+        }
+
+        .action-link:hover {
+            background: transparent;
+            color: var(--blue);
+        }
+
+        .action-link.secondary {
+            background: transparent;
+            color: var(--blue);
+        }
+
+        .action-link.secondary:hover {
+            background: var(--blue);
+            color: var(--cream);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px 7%;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            background: var(--blue);
+            color: var(--cream);
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            .topbar {
+                padding: 18px 6%;
+            }
+
+            .topbar-label {
+                display: none;
+            }
+
+            .project-hero {
+                padding: 55px 7%;
+            }
+
+            .content {
+                padding: 45px 6%;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                margin-top: 45px;
+            }
+
+            .preview-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .preview-item img {
+                height: 120px;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- NAVIGATION -->
+        <nav class="topbar">
+            <a href="../index.html#proyek" class="back-link">
+                ← Back to Portfolio
+            </a>
+
+            <span class="topbar-label">PROJECT DETAIL · 02</span>
+        </nav>
+
+        <!-- PROJECT HEADER -->
+        <header class="project-hero">
+            <span class="eyebrow">WEBSITE · GROUP PROJECT</span>
+
+            <h1>Lab Business Analytics.</h1>
+
+            <p>
+                Pengembangan website untuk Laboratorium Business Analytics
+                sebagai media informasi dan pengelolaan aktivitas laboratorium.
+            </p>
+
+            <div class="project-meta">
+                <span>ACADEMIC PROJECT</span>
+                <span>2025</span>
+                <span>WEB DEVELOPMENT</span>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- PROJECT PREVIEW -->
+            <div class="preview-gallery">
+
+                <div class="preview-item">
+                    <img src="../assets/projects/lab-business-analytics-1.png" alt="Homepage Lab Business Analytics">
+                    <p>Homepage</p>
+                </div>
+
+                <div class="preview-item">
+                    <img src="../assets/projects/lab-business-analytics-2.png"
+                        alt="Halaman informasi Lab Business Analytics">
+                    <p>Page Overview</p>
+                </div>
+
+                <div class="preview-item">
+                    <img src="../assets/projects/lab-business-analytics-3.png"
+                        alt="Halaman fitur Lab Business Analytics">
+                    <p>Features</p>
+                </div>
+
+                <div class="preview-item">
+                    <img src="../assets/projects/lab-business-analytics-4.png" alt="Dashboard Lab Business Analytics">
+                    <p>Dashboard</p>
+                </div>
+
+            </div>
+
+            <!-- OVERVIEW -->
+            <section class="section">
+                <div class="section-heading">
+                    <span class="section-number">01</span>
+                    <h2>Project Overview</h2>
+                </div>
+
+                <p class="section-text">
+                    Lab Business Analytics merupakan proyek pengembangan website profil dan sistem informasi
+                    laboratorium yang dikerjakan secara kolaboratif dari sisi Front-End hingga Back-End. Sistem ini
+                    dilengkapi dengan halaman profil dan galeri fasilitas laboratorium, layanan informasi perkuliahan
+                    terkait, autentikasi pengguna, serta dashboard multi-role terintegrasi untuk Admin, Dosen, dan
+                    Mahasiswa.
+                </p>
+            </section>
+
+            <!-- PROJECT STRUCTURE -->
+            <section class="section">
+                <div class="section-heading">
+                    <span class="section-number">02</span>
+                    <h2>Project Structure</h2>
+                </div>
+
+                <div class="info-grid">
+                    <article class="info-card">
+                        <h3>Front-End</h3>
+                        <p>
+                            Mengembangkan antarmuka pengguna (UI) yang responsif untuk halaman publik, galeri fasilitas,
+                            serta dashboard interaktif sesuai hak akses pengguna (Admin, Dosen, dan Mahasiswa).
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Back-End</h3>
+                        <p>
+                            Membangun arsitektur sisi server dan basis data untuk mengelola autentikasi, alur peminjaman
+                            laboratorium, publikasi, serta integrasi data sistem secara dinamis.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- MY CONTRIBUTION -->
+            <section class="section">
+                <div class="section-heading">
+                    <span class="section-number">03</span>
+                    <h2>My Contribution</h2>
+                </div>
+
+                <div class="contribution">
+                    <h3>Front-End Development & Feature Implementation</h3>
+
+                    <p>
+                        Mengembangkan antarmuka Dashboard Dosen, termasuk sidebar,
+                        halaman profil, publikasi terbaru, serta halaman riwayat
+                        dan detail peminjaman. Selain itu, mengimplementasikan
+                        fitur real-time searching dan filtering pada Landing Page,
+                        Dashboard Admin, dan Dashboard Dosen.
+
+                        <br><br>
+
+                        Turut mengembangkan logika validasi status publikasi
+                        otomatis saat data diedit, serta fitur keamanan dan
+                        pengelolaan data akun dosen.
+                    </p>
+                </div>
+            </section>
+
+            <!-- TECHNOLOGY -->
+            <section class="section">
+                <div class="section-heading">
+                    <span class="section-number">04</span>
+                    <h2>Technology Stack</h2>
+                </div>
+
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>PHP</span>
+                </div>
+            </section>
+
+            <!-- LINKS -->
+            <div class="actions">
+                <a class="action-link" href="https://github.com/alyfazeha/PBL_LabBusinessAnalytics-SIB2G-"
+                    target="_blank" rel="noopener">
+                    View GitHub Repository ↗
+                </a>
+
+                <a class="action-link secondary" href="../index.html#proyek">
+                    Back to Projects
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <span>MERIAM OKTAVIA MARTADINATA</span>
+        <span>LAB BUSINESS ANALYTICS</span>
+        <span>2026</span>
+    </footer>
+
+</body>
+
+</html>

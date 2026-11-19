@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OutGear Station | Project Detail</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F8F2DF;
+            --blue: #29479F;
+            --blue-text: #31547E;
+            --muted: #8290A8;
+            --line: #AAB5C7;
+        }
+
+        body {
+            background: #F0F1F5;
+            font-family: 'Inter', sans-serif;
+            color: var(--blue);
+        }
+
+        .page {
+            min-height: 100vh;
+            background: var(--cream);
+        }
+
+        /* NAVIGATION */
+        .topbar {
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .back-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .topbar-label {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--muted);
+        }
+
+        /* HERO */
+        .project-hero {
+            padding: 75px 9% 65px;
+            background: var(--blue);
+            color: var(--cream);
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: #DCE4F6;
+        }
+
+        .project-hero h1 {
+            max-width: 850px;
+            margin-top: 20px;
+            font: 900 clamp(38px, 6vw, 72px)/1.15 'Roboto Slab', serif;
+        }
+
+        .project-hero p {
+            max-width: 680px;
+            margin-top: 20px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #E5EAF6;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 30px;
+            margin-top: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #DCE4F6;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            max-width: 1200px;
+            margin: auto;
+            padding: 65px 7%;
+        }
+
+        /* PROJECT GALLERY */
+        .preview-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: -5px;
+        }
+
+        .preview-item {
+            border: 1px solid var(--line);
+            background: #FBF7EA;
+            overflow: hidden;
+        }
+
+        .preview-item img {
+            display: block;
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: top;
+            background: #E5E8EF;
+        }
+
+        .preview-item p {
+            padding: 12px 14px;
+            color: var(--blue-text);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-top: 65px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 25px;
+        }
+
+        .section-number {
+            font: 800 30px 'Roboto Slab', serif;
+            color: var(--muted);
+        }
+
+        .section-heading h2 {
+            font: 800 25px 'Roboto Slab', serif;
+        }
+
+        .section-text {
+            max-width: 900px;
+            color: var(--blue-text);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        /* FEATURE GRID */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .info-card {
+            padding: 25px;
+            border: 1px solid rgba(41, 71, 159, .25);
+            background: rgba(255, 255, 255, .38);
+        }
+
+        .info-card h3 {
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        .info-card p,
+        .info-card li {
+            color: var(--blue-text);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .info-card ul {
+            padding-left: 18px;
+        }
+
+        /* CONTRIBUTION */
+        .contribution {
+            padding: 30px;
+            background: var(--blue);
+            color: var(--cream);
+        }
+
+        .contribution h3 {
+            margin-bottom: 15px;
+            font: 800 24px 'Roboto Slab', serif;
+        }
+
+        .contribution p {
+            color: #E5EAF6;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .contribution-list {
+            margin-top: 20px;
+            padding-left: 20px;
+            color: #E5EAF6;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* TECH STACK */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tags span {
+            padding: 9px 13px;
+            border: 1px solid #AAB5C7;
+            color: var(--blue-text);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* BUTTONS */
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 55px;
+        }
+
+        .action-link {
+            display: inline-block;
+            padding: 14px 20px;
+            background: var(--blue);
+            border: 1px solid var(--blue);
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 800;
+            transition: .3s;
+        }
+
+        .action-link:hover {
+            background: transparent;
+            color: var(--blue);
+        }
+
+        .action-link.secondary {
+            background: transparent;
+            color: var(--blue);
+        }
+
+        .action-link.secondary:hover {
+            background: var(--blue);
+            color: var(--cream);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px 7%;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            background: var(--blue);
+            color: var(--cream);
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            .topbar {
+                padding: 18px 6%;
+            }
+
+            .topbar-label {
+                display: none;
+            }
+
+            .project-hero {
+                padding: 55px 7%;
+            }
+
+            .content {
+                padding: 45px 6%;
+            }
+
+            .preview-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .preview-item img {
+                height: 120px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                margin-top: 45px;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- NAVIGATION -->
+        <nav class="topbar">
+            <a href="../index.html#proyek" class="back-link">
+                ← Back to Portfolio
+            </a>
+
+            <span class="topbar-label">PROJECT DETAIL · 01</span>
+        </nav>
+
+        <!-- PROJECT HEADER -->
+        <header class="project-hero">
+            <span class="eyebrow">WEB APPLICATION · GROUP PROJECT</span>
+
+            <h1>OutGear Station.</h1>
+
+            <p>
+                Pengembangan Sistem Informasi Manajemen Penyewaan
+                dan Inventaris Peralatan Outdoor berbasis web untuk
+                membantu pengelolaan inventaris dan proses penyewaan
+                pada OutGear Station.
+            </p>
+
+            <div class="project-meta">
+                <span>ACADEMIC PROJECT</span>
+                <span>2026</span>
+                <span>WEB DEVELOPMENT</span>
+                <span>PROJECT MANAGEMENT</span>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- PROJECT OVERVIEW / SIX PHOTOS -->
+            <div class="preview-gallery">
+
+                <div class="preview-item">
+                    <img
+                        src="../assets/projects/outgear-station-1.png"
+                        alt="OutGear Station Katalog"
+                    >
+                    <p>Katalog</p>
+                </div>
+
+                <div class="preview-item">
+                    <img
+                        src="../assets/projects/outgear-station-2.png"
+                        alt="OutGear Station Login"
+                    >
+                    <p>Login</p>
+                </div>
+
+                <div class="preview-item">
+                    <img
+                        src="../assets/projects/outgear-station-3.png"
+                        alt="OutGear Station Dashboard Admin"
+                    >
+                    <p>Dashboard Admin</p>
+                </div>
+
+                <div class="preview-item">
+                    <img
+                        src="../assets/projects/outgear-station-4.png"
+                        alt="OutGear Station Dashboard Petugas"
+                    >
+                    <p>Dashboard Petugas</p>
+                </div>
+
+                <div class="preview-item">
+                    <img
+                        src="../assets/projects/outgear-station-5.png"
+                        alt="OutGear Station Dashboard Owner"
+                    >
+                    <p>Dashboard Owner</p>
+                </div>
+
+                <div class="preview-item">
+                    <img
+                        src="../assets/projects/outgear-station-6.png"
+                        alt="OutGear Station Laporan Penyewaan"
+                    >
+                    <p>Laporan Penyewaan</p>
+                </div>
+
+            </div>
+
+            <!-- OVERVIEW -->
+            <section class="section">
+                <div class="section-heading">
+                    <span class="section-number">01</span>
+                    <h2>Project Overview</h2>
+                </div>
+
+                <p class="section-text">
+                    OutGear Station merupakan proyek pengembangan
+                    sistem informasi berbasis web untuk usaha
+                    penyewaan perlengkapan outdoor di Kota Malang.
+                    Proyek ini bertujuan membantu menggantikan proses
+                    pencatatan semi-manual menggunakan Excel dan buku
+                    agenda yang berisiko menyebabkan double-booking
+                    serta ketidakkonsistenan pencatatan transaksi
+                    dan denda.
+
+                    <br><br>
+
+                    Sistem dirancang untuk menghubungkan proses
+                    pengelolaan inventaris, pemesanan, pembayaran,
+                    pengembalian barang, serta pemantauan operasional
+                    melalui dashboard dan laporan.
+                </p>
+            </section>
+
+            <!-- KEY FEATURES -->
+            <section class="section">
+                <div class="section-heading">
+                    <span class="section-number">02</span>
+                    <h2>Key Features</h2>
+                </div>
+
+                <div class="info-grid">
+
+                    <article class="info-card">
+                        <h3>User & Access Management</h3>
+                        <p>
+                            Pengelolaan akun dan hak akses berdasarkan
+                            peran Owner, Admin, Petugas Gudang,
+                            dan Customer.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Inventory Management</h3>
+                        <p>
+                            Pengelolaan data perlengkapan outdoor,
+                            kategori, tarif sewa, jumlah stok,
+                            dan kondisi barang.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Rental Booking</h3>
+                        <p>
+                            Penyediaan katalog barang dan proses
+                            pemesanan dengan pengecekan ketersediaan
+                            berdasarkan periode penyewaan.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Payment Management</h3>
+                        <p>
+                            Pencatatan pembayaran uang muka (DP)
+                            dan pelunasan transaksi penyewaan.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Return & Fine Management</h3>
+                        <p>
+                            Pencatatan pengembalian, pemeriksaan
+                            kondisi barang, serta perhitungan denda
+                            keterlambatan.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>Owner Dashboard & Reports</h3>
+                        <p>
+                            Penyajian informasi inventaris dan
+                            transaksi untuk membantu pemilik usaha
+                            memantau kegiatan operasional.
+                        </p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- MY CONTRIBUTION -->
+            <section class="section">
+                <div class="section-heading">
+                    <span class="section-number">03</span>
+                    <h2>My Contribution</h2>
+                </div>
+
+                <div class="contribution">
+                    <h3>Project Management & System Development</h3>
+
+                    <p>
+                        Berperan sebagai Project Manager dalam
+                        pengembangan sistem OutGear Station.
+                        Selain mengelola perencanaan dan koordinasi
+                        proyek, saya juga terlibat langsung dalam
+                        pengembangan sistem, khususnya pada modul Owner.
+                    </p>
+
+                    <ul class="contribution-list">
+                        <li>
+                            Menyusun perencanaan dan memantau
+                            perkembangan pekerjaan proyek.
+                        </li>
+
+                        <li>
+                            Mengembangkan fitur dan tampilan
+                            Dashboard Owner untuk mendukung
+                            pengelolaan sistem.
+                        </li>
+
+                        <li>
+                            Mengembangkan bagian Back-End dan
+                            mengintegrasikannya dengan antarmuka
+                            Front-End.
+                        </li>
+
+                        <li>
+                            Mengimplementasikan tampilan dan
+                            fungsionalitas pengelolaan data serta
+                            laporan Owner.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- TECHNOLOGY -->
+            <section class="section">
+                <div class="section-heading">
+                    <span class="section-number">04</span>
+                    <h2>Technology Stack</h2>
+                </div>
+
+                <div class="tags">
+                    <span>Laravel</span>
+                    <span>PHP</span>
+                    <span>Blade</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Tailwind CSS</span>
+                    <span>MySQL</span>
+                    <span>Git</span>
+                    <span>GitHub</span>
+                </div>
+            </section>
+
+            <!-- LINKS -->
+            <div class="actions">
+
+                <a
+                    class="action-link"
+                    href="https://github.com/fael83/Pbl-Smt5_Outgear-Station"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    View GitHub Repository ↗
+                </a>
+
+                <a
+                    class="action-link secondary"
+                    href="../index.html#proyek"
+                >
+                    Back to Projects
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <span>MERIAM OKTAVIA MARTADINATA</span>
+        <span>OUTGEAR STATION</span>
+        <span>2026</span>
+    </footer>
+
+</body>
+</html>

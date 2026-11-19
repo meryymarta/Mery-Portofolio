@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Meriam Oktavia</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #F0F1F5;
+            font-family: 'Inter', sans-serif;
+            color: #29479F;
+        }
+
+        :root {
+            --cream: #F8F2DF;
+            --blue: #29479F;
+            --blue-text: #31547E;
+            --muted: #8290A8;
+            --line: #AAB5C7;
+        }
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 18px;
+            background: var(--cream);
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .section-heading {
+            font-family: 'Roboto Slab', Georgia, serif;
+            font-size: clamp(38px, 5vw, 68px);
+            line-height: 1.08;
+            font-weight: 900;
+            color: var(--blue);
+        }
+
+        .section-line {
+            width: 70px;
+            height: 5px;
+            background: var(--blue);
+            margin-top: 16px;
+        }
+
+        /* COVER */
+        .hero {
+            min-height: 100vh;
+            background: var(--cream);
+        }
+
+        .side-strip {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5.5%;
+            height: 100%;
+            background: var(--blue);
+        }
+
+        .hero-title {
+            position: absolute;
+            top: 27%;
+            left: 12%;
+            right: 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .hero-title h1 {
+            font-family: 'Roboto Slab', Georgia, serif;
+            font-size: clamp(65px, 10vw, 150px);
+            letter-spacing: -7px;
+            line-height: 1;
+            color: var(--blue);
+            font-weight: 900;
+        }
+
+        .hero-photo {
+            position: absolute;
+            z-index: 3;
+            width: 36%;
+            height: 88%;
+            left: 35%;
+            bottom: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: bottom;
+            transition: transform .5s ease;
+        }
+
+        .hero-photo:hover img {
+            transform: scale(1.04);
+        }
+
+        .hero-info {
+            position: absolute;
+            z-index: 4;
+            left: 10%;
+            bottom: 9%;
+            max-width: 45%;
+            color: var(--blue);
+        }
+
+        .hero-info h2 {
+            font-size: clamp(20px, 2.5vw, 34px);
+            line-height: 1.1;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .hero-info p {
+            font-size: clamp(13px, 1.4vw, 19px);
+            line-height: 1.6;
+        }
+
+        /* DAFTAR ISI */
+        .contents-section {
+            display: grid;
+            grid-template-columns: 68% 32%;
+            min-height: 100vh;
+        }
+
+        .contents-left {
+            padding: 7% 8%;
+        }
+
+        .contents-left h2 {
+            font-size: clamp(42px, 5vw, 66px);
+            margin-bottom: 35px;
+            color: var(--blue-text);
+        }
+
+        .contents-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contents-item {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 17px 0;
+            border-bottom: 1px solid var(--blue-text);
+            color: var(--blue-text);
+            text-decoration: none;
+        }
+
+        .contents-number {
+            font-size: clamp(30px, 3.5vw, 45px);
+            font-weight: 800;
+        }
+
+        .contents-name {
+            font-size: clamp(16px, 2vw, 24px);
+            font-weight: 700;
+            transition: transform .3s ease;
+        }
+
+        .contents-item:hover .contents-name {
+            transform: translateX(8px);
+        }
+
+        .contents-right {
+            background-color: var(--blue);
+            background-image: url('assets/tekstur-biru.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--cream);
+            padding: 9%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .contents-right::before {
+            content: "01 — 03";
+            position: absolute;
+            top: 9%;
+            right: 9%;
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .contents-right span {
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .contents-right h3 {
+            font-family: 'Roboto Slab', Georgia, serif;
+            font-size: clamp(30px, 3.5vw, 50px);
+            line-height: 1.1;
+        }
+
+        .contents-right p {
+            font-size: 13px;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+
+        /* ABOUT ME */
+        .about-section {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1.55fr .85fr;
+        }
+
+        .about-left {
+            padding: 6% 7%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .about-heading {
+            margin-bottom: 15px;
+        }
+
+        .about-text {
+            margin-bottom: 10px;
+        }
+
+        .about-intro {
+            font-family: 'Roboto Slab', Georgia, serif;
+            font-size: clamp(19px, 2vw, 28px);
+            line-height: 1.45;
+            font-weight: 800;
+            color: var(--blue);
+            margin-bottom: 18px;
+        }
+
+        .about-description {
+            max-width: 95%;
+            font-size: clamp(14px, 1.2vw, 17px);
+            line-height: 1.8;
+            color: var(--blue-text);
+        }
+
+        .about-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            border-top: 1px solid var(--line);
+            padding-top: 25px;
+        }
+
+        .about-info-title {
+            font-size: 19px;
+            margin-bottom: 15px;
+            color: var(--blue);
+        }
+
+        .education-item,
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 13px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--blue-text);
+        }
+
+        .education-item img,
+        .contact-item img {
+            width: 25px;
+            height: 25px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: var(--blue-text);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .about-right {
+            padding: 5%;
+            background: var(--blue);
+        }
+
+        .about-photo-frame {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background: #E7E9E2;
+        }
+
+        .about-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform .6s ease;
+        }
+
+        .about-photo-frame:hover img {
+            transform: scale(1.04);
+        }
+
+        .about-photo-caption {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            right: 5%;
+            padding: 14px;
+            background: var(--cream);
+            color: var(--blue);
+        }
+
+        .about-photo-caption span {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .about-photo-caption strong {
+            font-family: 'Roboto Slab', Georgia, serif;
+            font-size: 18px;
+        }
+
+        .group-heading h3 {
+            font-size: clamp(20px, 2.3vw, 29px);
+            color: var(--blue);
+        }
+
+        .group-heading p {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .skill-card {
+            min-width: 0;
+            padding: 20px;
+            border: 1px solid #D8D5C8;
+            background: #FBF7EA;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(41, 71, 159, .10);
+        }
+
+        .skill-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h4 {
+            color: var(--blue);
+            font-size: clamp(16px, 1.5vw, 20px);
+            line-height: 1.4;
+        }
+
+        .skill-index {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .skill-card p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--blue-text);
+            margin: 12px 0 15px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 13px;
+        }
+
+        .skill-tags span {
+            padding: 6px 9px;
+            border: 1px solid #B9C5D8;
+            color: var(--blue-text);
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .skill-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .skill-gallery.single {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 145px;
+            display: block;
+            object-fit: cover;
+            object-position: top center;
+            cursor: zoom-in;
+            background: #E5E8EF;
+            border: 1px solid #D5D9E3;
+            transition: opacity .3s ease;
+        }
+
+        .gallery-image:hover {
+            opacity: .8;
+        }
+
+        .gallery-caption {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 7px;
+            line-height: 1.5;
+        }
+
+        .development-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .development-card {
+            padding: 23px;
+            background: var(--blue);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .development-card::after {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border: 1px solid rgba(248, 242, 223, .25);
+            border-radius: 50%;
+            right: -50px;
+            bottom: -50px;
+        }
+
+        .development-card .skill-index {
+            color: #CAD5F0;
+        }
+
+        .development-card h4 {
+            font-size: 20px;
+            margin: 12px 0;
+        }
+
+        .development-card p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #E5EAF6;
+        }
+
+        .development-card .skill-tags span {
+            border-color: rgba(248, 242, 223, .5);
+            color: var(--cream);
+        }
+
+        .development-card .gallery-image {
+            height: 155px;
+        }
+
+        .skills-note {
+            padding: 20px 23px;
+            margin-top: 35px;
+            border-left: 4px solid var(--blue);
+            background: #F1EBD8;
+            color: var(--blue-text);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* ANIMASI */
+        @keyframes masukKiri {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes masukKanan {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-title h1:first-child {
+            animation: masukKiri 1.2s ease-out both;
+        }
+
+        .hero-title h1:last-child {
+            animation: masukKanan 1.2s ease-out .2s both;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .from-left {
+            transform: translateX(-45px);
+        }
+
+        .from-right {
+            transform: translateX(45px);
+        }
+
+        .reveal.is-visible.from-left,
+        .reveal.is-visible.from-right {
+            transform: translateX(0);
+        }
+
+        .contents-item:nth-child(1) {
+            transition-delay: .15s;
+        }
+
+        .contents-item:nth-child(2) {
+            transition-delay: .3s;
+        }
+
+        .contents-item:nth-child(3) {
+            transition-delay: .45s;
+        }
+
+        .about-text {
+            transition-delay: .2s;
+        }
+
+        .about-details {
+            transition-delay: .4s;
+        }
+
+        .skills-group:nth-child(2) {
+            transition-delay: .2s;
+        }
+
+        .skill-card:nth-child(2) {
+            transition-delay: .12s;
+        }
+
+        /* IMAGE LIGHTBOX */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            padding: 30px;
+            background: rgba(14, 25, 53, .92);
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            border: 5px solid var(--cream);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--blue);
+            color: var(--cream);
+            padding: 25px 6%;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            .hero {
+                min-height: 720px;
+            }
+
+            .hero-title {
+                top: 23%;
+                left: 8%;
+                right: 5%;
+            }
+
+            .hero-title h1 {
+                font-size: clamp(38px, 9vw, 65px);
+                letter-spacing: -3px;
+            }
+
+            .hero-photo {
+                width: 55%;
+                height: 57%;
+                left: 26%;
+            }
+
+            .hero-info {
+                left: 8%;
+                bottom: 6%;
+                max-width: 85%;
+            }
+
+            .contents-section {
+                grid-template-columns: 1fr;
+            }
+
+            .contents-left {
+                padding: 45px 7%;
+            }
+
+            .contents-right {
+                min-height: 230px;
+            }
+
+            .contents-item {
+                gap: 15px;
+            }
+
+            .contents-number {
+                font-size: 30px;
+            }
+
+            .contents-name {
+                font-size: 15px;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .about-left {
+                padding: 40px 7%;
+            }
+
+            .about-right {
+                height: 450px;
+                order: -1;
+                padding: 15px;
+            }
+
+            .about-details {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-header {
+                min-height: 130px;
+            }
+
+            .skills-content {
+                padding: 35px 6%;
+            }
+
+            .skill-grid,
+            .development-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .gallery-image {
+                height: 130px;
+            }
+
+            .footer {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* RELEVANT SKILLS */
+
+        .skills-section {
+            padding: 0 0 6%;
+            background: var(--cream);
+        }
+
+        .skills-header {
+            min-height: 150px;
+            padding: 35px 5%;
+            background-color: var(--blue);
+            background-image: url('assets/tekstur-biru.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--cream);
+        }
+
+        .skills-header .eyebrow {
+            color: #DCE4F6;
+            margin-bottom: 10px;
+        }
+
+        .skills-header h2 {
+            font-family: 'Roboto Slab', Georgia, serif;
+            font-size: clamp(38px, 5vw, 65px);
+            font-weight: 900;
+            line-height: 1.1;
+        }
+
+        .skills-header p {
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-top: 12px;
+            color: #E5EAF6;
+        }
+
+        .skills-content {
+            padding: 5% 6%;
+        }
+
+        .skills-group {
+            margin-bottom: 55px;
+        }
+
+        .group-heading {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .group-number {
+            font-family: 'Roboto Slab', Georgia, serif;
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--blue);
+        }
+
+
+        /* =========================================
+   EXPERIENCE & PROJECTS
+========================================= */
+
+        .experience-page,
+        .projects-page {
+            padding: 0 8% 7%;
+            background: var(--cream);
+        }
+
+        /* Header full width, judul rata tengah */
+        .experience-header,
+        .projects-header {
+            width: 100vw;
+            max-width: none;
+            min-height: 175px;
+            margin-left: calc(50% - 50vw);
+            margin-bottom: 45px;
+            padding: 30px 8%;
+
+            background: var(--blue);
+            color: var(--cream);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .experience-header .eyebrow,
+        .projects-header .eyebrow {
+            color: #DCE4F6;
+            margin-bottom: 10px;
+        }
+
+        .experience-header .section-heading,
+        .projects-header .section-heading {
+            color: var(--cream);
+            font-size: clamp(36px, 4vw, 56px);
+            line-height: 1.15;
+            margin: 0;
+        }
+
+        .experience-header .section-heading span,
+        .projects-header .section-heading span {
+            color: var(--cream);
+        }
+
+        .experience-header>p:last-child,
+        .projects-header>p:last-child {
+            max-width: 550px;
+            margin: 12px auto 0;
+            color: #E5EAF6;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Layout Experience */
+        .experience-inner,
+        .projects-inner {
+            max-width: 1440px;
+            margin: auto;
+        }
+
+        .experience-layout {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 45px;
+            align-items: start;
+        }
+
+        .content-heading {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--blue);
+            margin: 10px 0 22px;
+        }
+
+        .content-heading span {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .content-heading h3 {
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .achievement-card {
+            display: flex;
+            gap: 18px;
+            padding: 22px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(41, 71, 159, .25);
+            background: rgba(255, 255, 255, .38);
+            transition: .3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateX(6px);
+            box-shadow: 5px 5px 0 var(--blue);
+        }
+
+        .achievement-index {
+            font: 800 30px 'Roboto Slab', serif;
+            opacity: .45;
+        }
+
+        .experience-date {
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            margin-bottom: 8px;
+        }
+
+        .achievement-card h4,
+        .timeline-item h4 {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .achievement-card p:not(.experience-date),
+        .timeline-item p:not(.experience-date) {
+            font-size: 14px;
+            line-height: 1.75;
+            color: var(--blue-text);
+        }
+
+        .experience-tag {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 5px 10px;
+            border: 1px solid var(--blue);
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .org-heading {
+            margin-top: 48px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-left: 7px;
+            padding: 0 0 30px 25px;
+            border-left: 1px solid #AAB5C7;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 3px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--blue);
+        }
+
+        .timeline-item h5 {
+            font-size: 13px;
+            margin: 0 0 7px;
+        }
+
+        .timeline-item .role-secondary {
+            margin-top: 14px;
+        }
+
+
+        /* =========================================
+   EXPERIENCE GALLERY
+========================================= */
+
+
+        /* =========================================
+   EXPERIENCE LAYOUT & GALLERY
+========================================= */
+
+
+        /* =========================================
+   EXPERIENCE GALLERY
+========================================= */
+
+        .experience-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-rows: 220px 180px 180px;
+            gap: 12px;
+            align-content: start;
+            height: auto;
+        }
+
+        .exp-photo {
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            min-height: 0;
+            position: relative;
+            overflow: hidden;
+            background: #d9deea;
+            margin: 0;
+        }
+
+        .exp-photo-large {
+            grid-column: 1 / -1;
+            height: 220px;
+        }
+
+        .exp-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform .5s ease;
+        }
+
+        .exp-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        .exp-photo figcaption {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            padding: 6px 9px;
+            background: var(--cream);
+            color: var(--blue);
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .experience-gallery {
+                grid-template-rows: 190px 145px 145px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .experience-gallery {
+                grid-template-rows: 190px 130px 130px;
+                gap: 7px;
+            }
+        }
+
+
+        /* =========================================
+   PROJECTS
+========================================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, .42);
+            border: 1px solid rgba(41, 71, 159, .22);
+            overflow: hidden;
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 6px 6px 0 rgba(41, 71, 159, .8);
+        }
+
+        .project-featured {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+        }
+
+        .project-image {
+            height: 220px;
+            overflow: hidden;
+            background: #e5e7ed;
+        }
+
+        .project-featured .project-image {
+            height: 100%;
+            min-height: 340px;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: zoom-in;
+            transition: transform .5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.025);
+        }
+
+        .project-info {
+            padding: 24px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .project-info h3 {
+            font: 800 25px 'Roboto Slab', serif;
+            margin: 17px 0 10px;
+        }
+
+        .project-info p {
+            font-size: 13px;
+            line-height: 1.75;
+            color: var(--blue-text);
+        }
+
+        .project-info .project-contribution {
+            margin-top: 12px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin: 16px 0;
+        }
+
+        .project-tags span {
+            border: 1px solid #aab5c7;
+            padding: 5px 9px;
+            font-size: 10px;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            border-bottom: 1px solid var(--blue);
+            padding-bottom: 4px;
+        }
+
+        .project-link-muted {
+            color: var(--muted);
+            border-bottom: 0;
+            font-weight: 500;
+        }
+
+        .github-note {
+            margin-top: 35px;
+            padding: 25px;
+            background: var(--blue);
+            color: var(--cream);
+        }
+
+        .github-note span {
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .github-note p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .github-note a {
+            color: var(--cream);
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        /* =========================================
+   ABOUT ME - PROPORSI DAN UKURAN
+========================================= */
+
+        .about-intro {
+            font-size: clamp(23px, 1.8vw, 27px);
+            line-height: 1.5;
+            max-width: 950px;
+            margin-bottom: 22px;
+        }
+
+        .about-description {
+            font-size: clamp(16px, 1.2vw, 18px);
+            line-height: 1.9;
+            max-width: 950px;
+        }
+
+        .about-details {
+            gap: 40px;
+            margin-top: 45px;
+        }
+
+        .about-info-title {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+
+        .about-details .education-item img {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            object-fit: contain;
+        }
+
+        .about-details .contact-item img {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            object-fit: contain;
+        }
+
+        .about-details .education-item,
+        .about-details .contact-item {
+            gap: 15px;
+            margin-bottom: 17px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .about-details .education-item span,
+        .about-details .education-item strong,
+        .about-details .contact-item a {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* =========================================
+   RESPONSIVE
+========================================= */
+
+        @media (max-width: 850px) {
+            .experience-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-gallery {
+                position: relative;
+                top: 0;
+            }
+
+            .project-featured {
+                grid-template-columns: 1fr;
+            }
+
+            .project-featured .project-image {
+                min-height: 220px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .experience-page,
+            .projects-page {
+                padding: 0 6% 50px;
+            }
+
+            .experience-header,
+            .projects-header {
+                width: 100vw;
+                min-height: 165px;
+                padding: 28px 6%;
+                margin-bottom: 35px;
+            }
+
+            .experience-header .section-heading,
+            .projects-header .section-heading {
+                font-size: clamp(32px, 8vw, 42px);
+            }
+
+            .experience-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-featured {
+                grid-column: auto;
+            }
+
+            .experience-gallery {
+                gap: 7px;
+            }
+
+            .exp-photo {
+                height: 130px;
+            }
+
+            .exp-photo-large {
+                height: 190px;
+            }
+
+            .project-info {
+                padding: 18px;
+            }
+
+            .about-intro {
+                font-size: 20px;
+            }
+
+            .about-description {
+                font-size: 15px;
+            }
+
+            .about-details {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PAGE 1: COVER -->
+    <section class="page hero" id="cover">
+
+        <div class="side-strip"></div>
+
+        <div class="hero-title">
+            <h1>PORTO</h1>
+            <h1>FOLIO</h1>
+        </div>
+
+        <div class="hero-photo">
+            <img src="assets/foto-mery.jpg" alt="Foto Meriam">
+        </div>
+
+        <div class="hero-info">
+            <h2>
+                Meriam Oktavia<br>
+                Martadinata
+            </h2>
+            <p>Business Analysis | Front-End Development</p>
+        </div>
+
+    </section>
+
+    <!-- PAGE 2: DAFTAR ISI -->
+    <section class="page contents-section" id="daftar-isi">
+
+        <div class="contents-left">
+            <h2 class="reveal">Daftar Isi</h2>
+
+            <div class="contents-list">
+                <a href="#tentang-saya" class="contents-item reveal">
+                    <span class="contents-number">1.</span>
+                    <span class="contents-name">Tentang Saya</span>
+                </a>
+
+                <a href="#skills" class="contents-item reveal">
+                    <span class="contents-number">2.</span>
+                    <span class="contents-name">Relevant Skills & Tools</span>
+                </a>
+
+                <a href="#pengalaman" class="contents-item reveal">
+                    <span class="contents-number">3.</span>
+                    <span class="contents-name">Pengalaman Organisasi</span>
+                </a>
+
+                <a href="#proyek" class="contents-item reveal">
+                    <span class="contents-number">4.</span>
+                    <span class="contents-name">Proyek</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="contents-right reveal from-right">
+            <span>MY PERSONAL PORTFOLIO</span>
+            <h3>A Collection<br>of My Work.</h3>
+            <p>
+                A collection of my academic projects,
+                experiences, and learning journey.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- PAGE 3: ABOUT ME -->
+    <section class="page about-section" id="tentang-saya">
+
+        <div class="about-left">
+
+            <div class="about-heading reveal from-left">
+                <span class="eyebrow">GET TO KNOW ME</span>
+                <h2 class="section-heading">Tentang Saya.</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-text reveal">
+                <p class="about-intro">
+                    Halo! Saya Meriam, mahasiswa Sistem Informasi Bisnis
+                    yang tertarik menghubungkan teknologi dan kebutuhan bisnis.
+                </p>
+
+                <p class="about-description">
+                    Selama perkuliahan, saya terlibat dalam beberapa proyek pengembangan sistem informasi,
+                    mulai dari analisis kebutuhan pengguna, perancangan proses bisnis, hingga pengembangan
+                    antarmuka website. Saya memiliki ketertarikan pada bidang System Analysis dan Front-End Development,
+                    khususnya dalam merancang solusi sistem yang sesuai dengan kebutuhan pengguna serta membangun
+                    tampilan
+                    website yang fungsional dan mudah digunakan.
+                </p>
+            </div>
+
+            <div class="about-details reveal">
+
+                <div class="about-info">
+                    <h3 class="about-info-title">Pendidikan</h3>
+
+                    <div class="education-item">
+                        <img src="assets/logo-polinema.png" alt="Logo Polinema">
+                        <span>
+                            <strong>Politeknik Negeri Malang</strong>
+                            <br>
+                            D4 Sistem Informasi Bisnis
+                            <br>
+                            2024 – Sekarang
+                        </span>
+                    </div>
+                </div>
+
+                <div class="about-info">
+                    <h3 class="about-info-title">Connect With Me</h3>
+
+                    <div class="contact-item">
+                        <img src="assets/instagram.png" alt="Instagram">
+                        <a href="https://instagram.com/mrtadnta" target="_blank">
+                            @mrtadnta
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <img src="assets/linkedin.png" alt="LinkedIn">
+                        <a href="https://www.linkedin.com/in/meriam-oktavia-martadinata" target="_blank">
+                            LinkedIn Profile
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <img src="assets/github.png" alt="GitHub">
+                        <a href="https://github.com/meryymarta" target="_blank">
+                            GitHub Profile
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="about-right reveal from-right">
+            <div class="about-photo-frame">
+                <img src="assets/about-me.png" alt="Foto Meriam">
+
+                <div class="about-photo-caption">
+                    <span>BUSINESS INFORMATION SYSTEMS</span>
+                    <strong>Meriam Oktavia Martadinata</strong>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- PAGE 4: RELEVANT SKILLS -->
+    <section class="page skills-section" id="skills">
+
+        <div class="skills-header">
+            <span class="eyebrow reveal">MY CAPABILITIES</span>
+            <h2 class="reveal">Relevant Skills</h2>
+            <p class="reveal">ANALYSIS · DESIGN · DEVELOPMENT</p>
+        </div>
+
+        <div class="skills-content">
+
+            <!-- GROUP 1: ANALYSIS & DESIGN -->
+            <div class="skills-group">
+
+                <div class="group-heading reveal">
+                    <span class="group-number">01</span>
+                    <div>
+                        <h3>Analysis & Design</h3>
+                        <p>Understanding business needs and designing solutions.</p>
+                    </div>
+                </div>
+
+                <div class="skill-grid">
+
+                    <!-- BUSINESS PROCESS ANALYSIS -->
+                    <article class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <h4>Business Process Analysis</h4>
+                            <span class="skill-index">01 / 03</span>
+                        </div>
+
+                        <p>
+                            Menganalisis alur proses bisnis dan
+                            menggambarkan aktivitas serta hubungan
+                            antarproses menggunakan pemodelan proses.
+                        </p>
+
+                        <div class="skill-gallery single">
+                            <img class="gallery-image" src="assets/skills/bpmn-process.png" alt="Business Process BPMN">
+                        </div>
+
+                        <div class="gallery-caption">
+                            Process modeling — BPMN diagram
+                        </div>
+
+                        <div class="skill-tags">
+                            <span>Business Process</span>
+                            <span>BPMN</span>
+                            <span>Process Mapping</span>
+                        </div>
+                    </article>
+
+                    <!-- REQUIREMENT ANALYSIS -->
+                    <article class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <h4>Requirement Analysis</h4>
+                            <span class="skill-index">02 / 03</span>
+                        </div>
+
+                        <p>
+                            Mengidentifikasi kebutuhan pengguna dan
+                            menyusun kebutuhan sistem sebagai dasar
+                            pengembangan solusi.
+                        </p>
+
+                        <div class="skill-gallery">
+                            <img class="gallery-image" src="assets/skills/requirement-1.png"
+                                alt="Requirement Analysis Document 1">
+
+                            <img class="gallery-image" src="assets/skills/requirement-2.png"
+                                alt="Requirement Analysis Document 2">
+                        </div>
+
+                        <div class="gallery-caption">
+                            Business needs and system requirements
+                        </div>
+
+                        <div class="skill-tags">
+                            <span>Requirement Gathering</span>
+                            <span>Business Requirements</span>
+                            <span>System Requirements</span>
+                        </div>
+                    </article>
+
+                    <!-- UI UX DESIGN -->
+                    <article class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <h4>UI/UX Design</h4>
+                            <span class="skill-index">03 / 03</span>
+                        </div>
+
+                        <p>
+                            Merancang tampilan antarmuka dan alur
+                            penggunaan sistem berdasarkan kebutuhan
+                            serta pengalaman pengguna.
+                        </p>
+
+                        <div class="skill-gallery">
+                            <img class="gallery-image" src="assets/skills/uiux-1.png" alt="UI UX Design Screen 1">
+
+                            <img class="gallery-image" src="assets/skills/uiux-2.png" alt="UI UX Design Screen 2">
+                        </div>
+
+                        <div class="gallery-caption">
+                            Interface design and dashboard layout
+                        </div>
+
+                        <div class="skill-tags">
+                            <span>Wireframing</span>
+                            <span>UI Design</span>
+                            <span>Prototyping</span>
+                        </div>
+                    </article>
+
+                    <!-- SYSTEM DOCUMENTATION -->
+                    <article class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <h4>System Documentation</h4>
+                            <span class="skill-index">04 / 04</span>
+                        </div>
+
+                        <p>
+                            Menyusun dokumentasi pendukung proyek
+                            untuk menjelaskan kebutuhan, rancangan,
+                            dan proses pengembangan sistem.
+                        </p>
+
+                        <div class="skill-gallery single">
+                            <img class="gallery-image" src="assets/skills/system-documentation.png"
+                                alt="System Documentation">
+                        </div>
+
+                        <div class="gallery-caption">
+                            Project and system documentation
+                        </div>
+
+                        <div class="skill-tags">
+                            <span>Documentation</span>
+                            <span>System Design</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <!-- GROUP 2: DEVELOPMENT -->
+            <div class="skills-group">
+
+                <div class="group-heading reveal">
+                    <span class="group-number">02</span>
+                    <div>
+                        <h3>Development</h3>
+                        <p>Building interfaces and connecting application components.</p>
+                    </div>
+                </div>
+
+                <div class="development-grid">
+
+                    <article class="development-card reveal">
+                        <span class="skill-index">01 / DEVELOPMENT</span>
+                        <h4>Front-End Development</h4>
+
+                        <p>
+                            Mengembangkan tampilan website dengan
+                            memperhatikan struktur halaman, layout,
+                            dan pengalaman pengguna.
+                        </p>
+
+                        <div class="skill-gallery single">
+                            <img class="gallery-image" src="assets/skills/frontend-project.png" alt="Front End Project">
+                        </div>
+
+                        <div class="skill-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </article>
+
+                    <article class="development-card reveal">
+                        <span class="skill-index">02 / DEVELOPMENT</span>
+                        <h4>Front-End & Back-End Integration</h4>
+
+                        <p>
+                            Menghubungkan antarmuka website dengan
+                            backend agar tampilan dapat berinteraksi
+                            dengan data dan fungsi sistem.
+                        </p>
+
+                        <div class="skill-gallery single">
+                            <img class="gallery-image" src="assets/skills/integration-project.png"
+                                alt="Front End and Back End Integration">
+                        </div>
+
+                        <div class="skill-tags">
+                            <span>API Integration</span>
+                            <span>PHP</span>
+                            <span>Laravel</span>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+            <div class="skills-note reveal">
+                <strong>Learning & Development</strong>
+                <br>
+                Kemampuan yang ditampilkan merupakan area yang telah
+                saya praktikkan melalui tugas perkuliahan dan proyek
+                pengembangan sistem, serta terus saya kembangkan.
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PAGE 5: EXPERIENCE & ACHIEVEMENTS -->
+    <section class="page experience-page" id="pengalaman">
+        <div class="experience-inner">
+
+            <header class="experience-header reveal">
+                <span class="eyebrow">MY JOURNEY · 2023 — 2026</span>
+                <h2 class="section-heading">
+                    Pengalaman &<br> Pencapaian<span>.</span>
+                </h2>
+                <p>
+                    Perjalanan belajar, berorganisasi, dan mengembangkan
+                    pengalaman selama masa perkuliahan.
+                </p>
+            </header>
+
+            <div class="experience-layout">
+
+                <div class="experience-details">
+
+                    <div class="content-heading reveal">
+                        <span>01</span>
+                        <h3>Achievements</h3>
+                    </div>
+
+                    <article class="achievement-card reveal">
+                        <span class="achievement-index">01</span>
+                        <div>
+                            <p class="experience-date">AUGUST 2023 — PRESENT</p>
+                            <h4>BSI Scholarship Awardee</h4>
+                            <p>
+                                Penerima beasiswa pendidikan BSI sebagai
+                                dukungan dalam menempuh pendidikan tinggi.
+                            </p>
+                            <span class="experience-tag">Scholarship</span>
+                        </div>
+                    </article>
+
+                    <article class="achievement-card reveal">
+                        <span class="achievement-index">02</span>
+                        <div>
+                            <p class="experience-date">2026 · INTERNAL COMPETITION</p>
+                            <h4>3rd Place — ICT Business Planning Competition</h4>
+                            <p>
+                                Meraih Juara 3 pada kompetisi perencanaan
+                                bisnis berbasis teknologi.
+                            </p>
+                            <span class="experience-tag">Competition</span>
+                        </div>
+                    </article>
+
+                    <div class="content-heading org-heading reveal">
+                        <span>02</span>
+                        <h3>Organizational Experience</h3>
+                    </div>
+
+                    <article class="timeline-item reveal">
+                        <span class="timeline-dot"></span>
+                        <p class="experience-date">OCTOBER 2026 — PRESENT</p>
+                        <h4>Kelana Jiwa</h4>
+                        <h5>Staff Business Development</h5>
+                        <p>
+                            Mendukung pengembangan peluang kerja sama
+                            dan hubungan dengan calon mitra.
+                        </p>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <span class="timeline-dot"></span>
+                        <p class="experience-date">APRIL — JUNE 2026</p>
+                        <h4>PLAY IT 2026</h4>
+                        <h5>Staff Humas / Liaison Officer</h5>
+                        <p>
+                            Membantu komunikasi dan koordinasi dengan
+                            pihak sponsor serta mendukung kebutuhan
+                            informasi kegiatan.
+                        </p>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <span class="timeline-dot"></span>
+                        <p class="experience-date">2025 — PRESENT</p>
+                        <h4>
+                            ITDEC — Information Technology
+                            Department English Community
+                        </h4>
+                        <h5>Bendahara</h5>
+                        <p>
+                            Membantu pengelolaan dan pencatatan
+                            keuangan organisasi.
+                        </p>
+
+                        <h5 class="role-secondary">
+                            Shadow — Internal Empowerment
+                        </h5>
+                        <p>
+                            Berpartisipasi dalam kegiatan dan program
+                            kerja departemen.
+                        </p>
+                    </article>
+
+                </div>
+
+                <aside class="experience-gallery reveal">
+
+                    <figure class="exp-photo exp-photo-large">
+                        <img src="assets/experience/itdec.png" alt="Kegiatan ITDEC">
+                        <figcaption>ITDEC</figcaption>
+                    </figure>
+
+                    <figure class="exp-photo">
+                        <img src="assets/experience/bsi.png" alt="BSI Scholarship">
+                        <figcaption>BSI Scholarship</figcaption>
+                    </figure>
+
+                    <figure class="exp-photo">
+                        <img src="assets/experience/competition.png" alt="ICT Business Planning Competition">
+                        <figcaption>Competition</figcaption>
+                    </figure>
+
+                    <figure class="exp-photo">
+                        <img src="assets/experience/playit.png" alt="PLAY IT 2026">
+                        <figcaption>PLAY IT 2026</figcaption>
+                    </figure>
+
+                    <figure class="exp-photo">
+                        <img src="assets/experience/business-development.png" alt="Kelana Jiwa">
+                        <figcaption>Kelana Jiwa</figcaption>
+                    </figure>
+
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PAGE 6: SELECTED PROJECTS -->
+    <section class="page projects-page" id="proyek">
+        <div class="projects-inner">
+
+            <header class="projects-header reveal">
+                <span class="eyebrow">SELECTED WORK · 2024 — 2026</span>
+                <h2 class="section-heading">Projects<span>.</span></h2>
+                <p>
+                    Beberapa proyek akademik dan pengembangan sistem
+                    yang pernah saya kerjakan, baik secara individu
+                    maupun berkelompok.
+                </p>
+            </header>
+
+            <div class="projects-grid">
+
+                <!-- OUTGEAR STATION -->
+                <article class="project-card project-featured reveal">
+                    <div class="project-image">
+                        <img class="gallery-image" src="assets/projects/outgear-station.png"
+                            alt="OutGear Station project">
+                    </div>
+
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span>01 / WEB APPLICATION</span>
+                            <span>GROUP PROJECT</span>
+                        </div>
+
+                        <h3>OutGear Station</h3>
+
+                        <p>
+                            Sistem Informasi Manajemen Penyewaan dan
+                            Inventaris Peralatan Outdoor untuk membantu
+                            pengelolaan alat, stok, pemesanan, pembayaran,
+                            dan pengembalian.
+                        </p>
+
+                        <p class="project-contribution">
+                            <strong>My contribution:</strong>
+                            Project Management, Front-End Development,
+                            serta integrasi Front-End dan Back-End.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Laravel</span>
+                            <span>PHP</span>
+                            <span>Blade</span>
+                            <span>Tailwind CSS</span>
+                            <span>MySQL</span>
+                        </div>
+
+                        <a class="project-link" href="projects/outgear-station.html">
+                            View Project ↗
+                        </a>
+                    </div>
+                </article>
+
+                <!-- LAB BUSINESS ANALYTICS -->
+                <article class="project-card reveal">
+                    <div class="project-image">
+                        <img class="gallery-image" src="assets/projects/lab-business-analytics.png"
+                            alt="Lab Business Analytics website">
+                    </div>
+
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span>02 / WEBSITE</span>
+                            <span>GROUP PROJECT</span>
+                        </div>
+
+                        <h3>Lab Business Analytics</h3>
+
+                        <p>
+                            Pengembangan website untuk Laboratorium
+                            Business Analytics sebagai media informasi
+                            laboratorium.
+                        </p>
+
+                        <p class="project-contribution">
+                            <strong>My contribution:</strong>
+                            Mengembangkan tampilan Front-End dan
+                            mengintegrasikannya dengan Back-End.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                        </div>
+
+                        <a class="project-link" href="projects/lab-business-analytics.html">
+                            View Project ↗
+                        </a>
+                    </div>
+                </article>
+
+
+                <!-- POWER BI -->
+                <article class="project-card reveal">
+                    <div class="project-image">
+                        <img class="gallery-image" src="assets/projects/power-bi-dashboard.png"
+                            alt="Power BI Dashboard">
+                    </div>
+
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span>03 / DATA ANALYSIS</span>
+                            <span>ACADEMIC PROJECT</span>
+                        </div>
+
+                        <h3>Power BI Dashboard</h3>
+
+                        <p>
+                            Pengolahan dan visualisasi data penjualan untuk
+                            menganalisis performa produk, distribusi pendapatan,
+                            serta tren revenue dan profit secara interaktif.
+                        </p>
+
+                        <p class="project-contribution">
+                            <strong>Focus:</strong>
+                            Data preparation, DAX, data analysis,
+                            dan interactive data visualization.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Power BI</span>
+                            <span>Power Query</span>
+                            <span>DAX</span>
+                            <span>Data Analysis</span>
+                        </div>
+
+                        <a href="projects/power-bi-dashboard.html" class="project-link">
+                            View Project ↗
+                        </a>
+                    </div>
+                </article>
+
+
+
+                <!-- LOKIO -->
+                <article class="project-card reveal">
+                    <div class="project-image">
+                        <img class="gallery-image" src="assets/projects/lokio.png" alt="LOKIO Product Mockup">
+                    </div>
+
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span>04 / BUSINESS DEVELOPMENT</span>
+                            <span>BUSINESS PLAN</span>
+                        </div>
+
+                        <h3>LOKIO</h3>
+
+                        <p>
+                            Perancangan konsep platform digital yang menghubungkan
+                            mahasiswa dengan UMKM lokal di sekitar kampus melalui
+                            direktori usaha dan layanan pemesanan.
+                        </p>
+
+                        <p class="project-contribution">
+                            <strong>Focus:</strong>
+                            Product strategy, user research, business model,
+                            dan product planning.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Product Development</span>
+                            <span>Business Model</span>
+                            <span>User Research</span>
+                        </div>
+
+                        <a href="projects/lokio.html" class="project-link">
+                            View Project ↗
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="github-note reveal">
+                <span>MORE ON GITHUB</span>
+                <p>Eksplorasi kode dan proyek lainnya melalui GitHub.</p>
+                <a href="https://github.com/meryymarta" target="_blank" rel="noopener">
+                    github.com/meryymarta ↗
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span>MERIAM OKTAVIA MARTADINATA</span>
+        <span>MY PERSONAL PORTFOLIO</span>
+        <span>2026</span>
+    </footer>
+
+
+    <!-- IMAGE LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close image">
+            &times;
+        </button>
+
+        <img src="" alt="Preview image" id="lightboxImage">
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        /* SCROLL REVEAL */
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        }, {
+            threshold: 0.12,
+            rootMargin: "0px 0px -4% 0px"
+        });
+
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+
+
+        /* IMAGE LIGHTBOX */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        document.querySelectorAll('.gallery-image').forEach(image => {
+
+            image.addEventListener('click', () => {
+                lightboxImage.src = image.src;
+                lightboxImage.alt = image.alt;
+                lightbox.classList.add('active');
+            });
+
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightboxImage.src = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
