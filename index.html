@@ -1017,83 +1017,80 @@
             margin-top: 14px;
         }
 
-
-        /* =========================================
+/* =========================================
    EXPERIENCE GALLERY
 ========================================= */
 
+.experience-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 340px 280px;
+    gap: 12px;
+    align-content: start;
+    height: auto;
+}
 
-        /* =========================================
-   EXPERIENCE LAYOUT & GALLERY
-========================================= */
+.exp-photo {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+    background: #d9deea;
+    margin: 0;
+}
 
+.exp-photo-large {
+    grid-column: 1 / -1;
+    height: 340px;
+}
 
-        /* =========================================
-   EXPERIENCE GALLERY
-========================================= */
+.exp-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .5s ease;
+}
 
-        .experience-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            grid-template-rows: 220px 180px 180px;
-            gap: 12px;
-            align-content: start;
-            height: auto;
-        }
+.exp-photo:hover img {
+    transform: scale(1.05);
+}
 
-        .exp-photo {
-            width: 100%;
-            height: 100%;
-            min-width: 0;
-            min-height: 0;
-            position: relative;
-            overflow: hidden;
-            background: #d9deea;
-            margin: 0;
-        }
+.exp-photo figcaption {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    padding: 6px 9px;
+    background: var(--cream);
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 800;
+}
 
-        .exp-photo-large {
-            grid-column: 1 / -1;
-            height: 220px;
-        }
+/* Responsive */
+@media (max-width: 768px) {
+    .experience-gallery {
+        grid-template-rows: 300px 240px;
+    }
 
-        .exp-photo img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transition: transform .5s ease;
-        }
+    .exp-photo-large {
+        height: 300px;
+    }
+}
 
-        .exp-photo:hover img {
-            transform: scale(1.05);
-        }
+@media (max-width: 700px) {
+    .experience-gallery {
+        grid-template-rows: 270px 220px;
+        gap: 7px;
+    }
 
-        .exp-photo figcaption {
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-            padding: 6px 9px;
-            background: var(--cream);
-            color: var(--blue);
-            font-size: 10px;
-            font-weight: 800;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .experience-gallery {
-                grid-template-rows: 190px 145px 145px;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .experience-gallery {
-                grid-template-rows: 190px 130px 130px;
-                gap: 7px;
-            }
-        }
+    .exp-photo-large {
+        height: 270px;
+    }
+}
 
 
         /* =========================================
@@ -1395,7 +1392,6 @@
                 Meriam Oktavia<br>
                 Martadinata
             </h2>
-            <p>Business Analysis | Front-End Development</p>
         </div>
 
     </section>
@@ -1419,7 +1415,7 @@
 
                 <a href="#pengalaman" class="contents-item reveal">
                     <span class="contents-number">3.</span>
-                    <span class="contents-name">Pengalaman Organisasi</span>
+                    <span class="contents-name">Pengalaman & Pencapaian</span>
                 </a>
 
                 <a href="#proyek" class="contents-item reveal">
@@ -1563,16 +1559,16 @@
                         </p>
 
                         <div class="skill-gallery single">
-                            <img class="gallery-image" src="assets/skills/bpmn-process.png" alt="Business Process BPMN">
+                            <img class="gallery-image" src="assets/skills/activity-diagram.png" alt="Business Process Activity Diagram">
                         </div>
 
                         <div class="gallery-caption">
-                            Process modeling — BPMN diagram
+                            Process modeling — Activity Diagram
                         </div>
 
                         <div class="skill-tags">
                             <span>Business Process</span>
-                            <span>BPMN</span>
+                            <span>Activity Diagram</span>
                             <span>Process Mapping</span>
                         </div>
                     </article>
@@ -1591,10 +1587,10 @@
                         </p>
 
                         <div class="skill-gallery">
-                            <img class="gallery-image" src="assets/skills/requirement-1.png"
+                            <img class="gallery-image" src="assets/skills/system-requirement-1.png"
                                 alt="Requirement Analysis Document 1">
 
-                            <img class="gallery-image" src="assets/skills/requirement-2.png"
+                            <img class="gallery-image" src="assets/skills/system-requirement-2.png"
                                 alt="Requirement Analysis Document 2">
                         </div>
 
